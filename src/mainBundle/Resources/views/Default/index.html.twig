@@ -1,0 +1,208 @@
+{% extends 'mainBundle::layout.html.twig' %}
+{% block content %}
+    <div id="carouselBlk">
+        <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="container">
+                        <a href="{{ path('ajout_membre') }}"><img style="width:100%" src="{{ asset('themes/images/carousel/1.png') }}" alt="special offers"/></a>
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <a href="{{ path('ajout_membre') }}"><img style="width:100%" src="{{ asset('themes/images/carousel/2.png') }}" alt=""/></a>
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <a href="{{ path('ajout_membre') }}"><img src="{{ asset('themes/images/carousel/3.png') }}" alt=""/></a>
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <a href="{{ path('ajout_membre') }}"><img src="{{ asset('themes/images/carousel/4.png') }}" alt=""/></a>
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <a href="{{ path('ajout_membre') }}"><img src="{{ asset('themes/images/carousel/5.png') }}" alt=""/></a>
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <a href="register.html"><img src="{{ asset('themes/images/carousel/6.png') }}" alt=""/></a>
+                        <div class="carousel-caption">
+                            <h4>Second Thumbnail label</h4>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div> 
+    </div>
+    <div id="mainBody">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar ================================================== -->
+                <div id="sidebar" class="span3">
+                    <div class="well well-small"><a id="myCart" href="{{ path('cart') }}"><img src="{{ asset('themes/images/ico-cart.png') }}" alt="cart">3 Items in your cart  <span class="badge badge-warning pull-right">$155.00</span></a></div>
+                    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                        <li class="subMenu open"><a> Categories Produits [{{produits|length}}]</a>
+                            <ul>
+                                {% set i = 0 %}
+                                {% for cproduit in cproduits %}
+                                    {% set i = i+1 %}
+                                    <li><a {% if i==1 %}class="active" {% endif %}href="{{ path('products',{'categorie':cproduit.libelle,'page':page}) }}"><i class="icon-chevron-right"></i>{{cproduit.libelle }} [{{nbcp[i-1]}}]</a></li>
+                                    {% endfor %}
+                               
+                            </ul>
+                        </li>
+                        <li class="subMenu"><a> Categories Services [{{services|length}}] </a>
+                            <ul style="display:none">
+                                 
+                                {% set i = 0 %}
+                                {% for cservice in cservices %}
+                                    {% set i = i+1 %}
+                                    <li><a {% if i==1 %}class="active" {% endif %}href="{{ path('services',{'categorie':cservice.libelle,'page':page}) }}"><i class="icon-chevron-right"></i>{{cservice.libelle }} [{{nbcs[i-1]}}]</a></li>
+                                    {% endfor %}
+                               
+                            </ul>
+                        </li>
+                     
+                    </ul>
+                    <br/>
+                    {% for nbproduit in nbproduits %}
+                    <div class="thumbnail">
+                        <img src="{{ asset('themes/images/products/panasonic.jpg') }}" alt="Bootshop panasonoc New camera"/>
+                        <div class="caption">
+                            <h5>{{nbproduit.libelle}}</h5>
+                            <h4 style="text-align:center"><a class="btn" href="{{ path('product_details',{'id':nbproduit.id}) }}"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">{{nbproduit.prix}} DT</a></h4>
+                        </div>
+                    </div>
+                        <br/>
+                       {% endfor %} 
+                    <div class="thumbnail">
+                        <img src="{{ asset('themes/images/payment_methods.png') }}" title="Bootshop Payment Methods" alt="Payments Methods">
+                        <div class="caption">
+                            <h5>Payment Methods</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar end=============================================== -->
+                <div class="span9">		
+                    <div class="well well-small">
+                        <h4>Featured Products <small class="pull-right">{{produits|length}}+ featured products</small></h4>
+                        <div class="row-fluid">
+                            <div id="featured" class="carousel slide">
+                                <div class="carousel-inner">
+                                    <div class="item active ">
+                                       
+                                        <ul class="thumbnails">
+                                    {% set i = 0 %}
+                                     {% for produit in produits %}
+                                         
+                                        {% set i = i+1 %}
+                                        
+                                        
+                                            <li class="span3">
+                                                <div class="thumbnail">
+                                                    <i class="tag"></i>
+                                                    <a href="{{ path('product_details',{'id':produit.id}) }}"><img src="{{ asset(produit.image) }}" alt=""></a>
+                                                    <div class="caption">
+                                                        <h5>{{ produit.libelle }}</h5>
+                                                        <h4><a class="btn" href="{{ path('product_details',{'id':produit.id}) }}">VIEW</a> <span class="pull-right">{{produit.prix }} Dt </span></h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                           {% if   i is divisible by(4)  %}
+                                                 </ul>
+                                    </div>
+                                        <div class="item  ">
+                                       
+                                        <ul class="thumbnails">
+                                            {% endif %} 
+                                      
+                                        
+                                         {% endfor %}
+                                        </ul>
+                                     </div> 
+                                </div>
+                                <a class="left carousel-control" href="#featured" data-slide="prev">‹</a>
+                                <a class="right carousel-control" href="#featured" data-slide="next">›</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well well-small">
+                        <h4>Featured Services <small class="pull-right">{{services|length}}+ featured services</small></h4>
+                        <div class="row-fluid">
+                            <div id="featured2" class="carousel slide">
+                                <div class="carousel-inner">
+                                    <div class="item active ">
+                                       
+                                        <ul class="thumbnails">
+                                    {% set i = 0 %}
+                                     {% for service in services %}
+                                         
+                                        {% set i = i+1 %}
+                                        
+                                        
+                                            <li class="span3">
+                                                <div class="thumbnail">
+                                                    <i class="tag"></i>
+                                                    <a href="{{ path('product_details',{'id':service.id}) }}"><img src="{{ asset('http://localhost/allfordeal/pidev/images/service.png') }}" alt=""></a>
+                                                    <div class="caption">
+                                                        <h5>{{ service.libelle }}</h5>
+                                                        <h4><a class="btn" href="{{ path('product_details',{'id':service.id}) }}">VIEW</a> <span class="pull-right">{{service.date|date('Y/m/d') }}  </span></h4>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                           {% if   i is divisible by(4)  %}
+                                                 </ul>
+                                    </div>
+                                        <div class="item  ">
+                                       
+                                        <ul class="thumbnails">
+                                            {% endif %} 
+                                      
+                                        
+                                         {% endfor %}
+                                        </ul>
+                                     </div> 
+                                </div>
+                                <a class="left carousel-control" href="#featured2" data-slide="prev">‹</a>
+                                <a class="right carousel-control" href="#featured2" data-slide="next">›</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,139 @@
+{# empty Twig template #}
+{% extends 'mainBundle::layout.html.twig' %}
+{% block content %}
+    <div id="mainBody">
+        <div class="container">
+            <div class="row">
+
+                
+                <div id="sidebar" class="span3">
+                    
+                   <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                        <li class="subMenu open"><a> Gestion Produits </a>
+                            <ul {% if ( app.session.get('x') == 5)or ( app.session.get('x') == 6)or ( app.session.get('x') == 7) or ( app.session.get('x') == 8) %}style="display:none"{% endif %}>
+                                <li><a class="active" href="{{ path('afficherProduit') }}"><i class="icon-chevron-right"></i>Afficher</a></li>
+                                <li><a href="{{ path('ajouterProduit') }}"><i class="icon-chevron-right"></i>Ajouter</a></li>
+                                <li><a href="{{ path('modifierProduit') }}"><i class="icon-chevron-right"></i>Modifier</a></li>
+                                <li><a href="{{ path('supprimerProduit') }}"><i class="icon-chevron-right"></i>Supprimer</a></li>
+                            </ul>
+                        </li>
+                        <li class="subMenu"><a> Gestion Services </a>
+                           <ul {% if ( app.session.get('x') == 1)or ( app.session.get('x') == 2)or ( app.session.get('x') == 3) or ( app.session.get('x') == 4) %}style="display:none"{% endif %}>
+                                <li><a class="active" href="{{ path('afficherService') }}"><i class="icon-chevron-right"></i>Afficher</a></li>
+                                <li><a href="{{ path('ajouterService') }}"><i class="icon-chevron-right"></i>Ajouter</a></li>
+                                <li><a href="{{ path('modifierService') }}"><i class="icon-chevron-right"></i>Modifier</a></li>
+                                <li><a href="{{ path('supprimerService') }}"><i class="icon-chevron-right"></i>Supprimer</a></li>												
+                            </ul>
+                        </li>
+                </ul>
+                </div>
+
+
+
+
+                <div class="span9">
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('main_homepage') }}">Home</a> <span class="divider">/</span></li>
+                        <li class="active">Modifier Service</li>
+                    </ul>
+                    <h3> Modifier Service</h3>	
+                    <div class="well">
+                        <!--
+                        <div class="alert alert-info fade in">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                         </div>
+                        <div class="alert fade in">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                         </div>
+                         <div class="alert alert-block alert-error fade in">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Lorem Ipsum is simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                         </div> -->
+                        <form class="form-horizontal" method="Post" action="{{ path("modifiers") }}" >
+                            <h4>Informations du service : </h4>
+                            <div class="control-group">
+
+                                <br>
+                                
+                                <div class="control-group">
+                                <label class="control-label">Service : </label>
+                            <div class="controls">
+                                    <select id="serv" class="span2" name="services">
+                                        {% for service in services %}
+                                            <option value="{{service.id}}">{{service.libelle}}</option>
+                                        {% endfor %}
+                                        
+                                        
+                                    </select>
+                                </div>
+                            </div> 
+                                <label class="control-label">Catégorie : </label>
+                                <div class="controls">
+                                    <select id="cats" class="span2" name="categorie">
+                                        {% for categorie in categories %}
+                                            <option value="{{categorie.id}}">{{categorie.libelle}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="control-group">
+                                <label  class="control-label" for="inputFname1">Nom : </label>
+                                <div class="controls">
+                                    <input name="nom" id="nom" type="text" placeholder="Nom Service">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label   class="control-label" for="inputLnam">Description : </label>
+                                <div class="controls">
+                                    <textarea id="desc" name="description" rows="4" cols="200"> </textarea>
+                                </div>
+                            </div>
+
+                            
+
+
+
+
+
+
+
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input type="hidden" name="email_create" value="1">
+                                    <input type="hidden" name="is_new_customer" value="1">
+                                    <input class="btn btn-large btn-success" type="submit" value="Modifier" />
+                                </div>
+                            </div>		
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            
+            $('#serv').change(function(){
+                
+                {% for serv in services %}
+                        
+                        if ($('#serv').val() == {{serv.id}}){
+                           
+                            $('#nom').val('{{ serv.libelle }}');
+                            
+                            $('#desc').val('{{ serv.description }}');
+                        }
+                        {% endfor %}        
+                
+            });
+        });
+    </script>
+{% endblock %}   

@@ -1,0 +1,78 @@
+back_office_homepage:
+    path:     /admin
+    defaults: { _controller: BackOfficeBundle:Default:index }
+gestion_produits:
+    path:     /gestion-produits
+    defaults: { _controller: BackOfficeBundle:Default:gestionProd }      
+gestion_produits_enAttente:
+    path:     /gestion-produit/enAttente
+    defaults: { _controller: BackOfficeBundle:Default:gestionProdEnAttente }
+accepte_produit:
+    path:     /accepte/{id}
+    defaults: { _controller: BackOfficeBundle:Default:accepte}
+refuse_produit:
+    path:     /refuse/{id}
+    defaults: { _controller: BackOfficeBundle:Default:refuse}    
+efface_produit:
+    path:     /efface-produit/{id}
+    defaults: { _controller: BackOfficeBundle:Default:effaceProd}
+gestion_services:
+    path:     /gestion-services
+    defaults: { _controller: BackOfficeBundle:Default:gestionService }    
+efface_service:
+    path:     /efface-service/{id}
+    defaults: { _controller: BackOfficeBundle:Default:effaceServ} 
+gestion_admins:
+    path:     /gestion-admin
+    defaults: { _controller: BackOfficeBundle:Default:gestionAdmin}     
+gestion_admin_ajout:
+    path:     /gestion-admin/ajout
+    defaults: { _controller: BackOfficeBundle:Default:ajoutAdmin}  
+gestion_admin_modif:
+    path:     /gestion-admin/modifier
+    defaults: { _controller: BackOfficeBundle:Default:modifAdmin} 
+gestion_admin_supp:
+    path:     /gestion-admin/supprimer/{id}
+    defaults: { _controller: BackOfficeBundle:Default:suppAdmin}  
+ajax:
+    path:     /ajax
+    defaults: { _controller: BackOfficeBundle:Default:ajax}    
+gestion_reclamation_inbox:
+    path:     /gestion-reclamation/inbox
+    defaults: { _controller: BackOfficeBundle:Default:inbox} 
+gestion_reclamation_compose:
+    path:     /gestion-reclamation/compose
+    defaults: { _controller: BackOfficeBundle:Default:compose} 
+gestion_reclamation_voir:
+    path:     /gestion-reclamation/voir
+    defaults: { _controller: BackOfficeBundle:Default:voirRec} 
+gestion_reclamation_voir_1:
+    path:     /gestion-reclamation/voir/{id}
+    defaults: { _controller: BackOfficeBundle:Default:voirReclamation}     
+gestion_reclamation_repond:
+    path:     /gestion-reclamation/repond
+    defaults: { _controller: BackOfficeBundle:Default:repondRec}
+gestion_reclamation_supp:
+    path:     /gestion-reclamation/supp
+    defaults: { _controller: BackOfficeBundle:Default:suppRec}    
+ajax_reclamation1:
+    path:     /ajax-rec1
+    defaults: { _controller: BackOfficeBundle:Default:ajaxRec1} 
+ajax_reclamation2:
+    path:     /ajax-rec2
+    defaults: { _controller: BackOfficeBundle:Default:ajaxRec2} 
+gestion_reclamation:
+    path:     /gestion-reclamation
+    defaults: { _controller: BackOfficeBundle:Default:gestRec}
+envoi_mail:
+    path:     /envoi-mail
+    defaults: { _controller: BackOfficeBundle:Default:envoiMail}  
+login_admin:
+    path:     /login-admin
+    defaults: { _controller: BackOfficeBundle:Default:login}
+admin_signIn:
+    path:     /admin-sign-in
+    defaults: { _controller: BackOfficeBundle:Default:signIn}
+ajax_login:
+    path:     /ajax-login
+    defaults: { _controller: BackOfficeBundle:Default:ajaxLogin}      

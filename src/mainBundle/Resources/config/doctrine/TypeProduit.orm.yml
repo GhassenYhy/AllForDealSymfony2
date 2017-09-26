@@ -1,0 +1,26 @@
+mainBundle\Entity\TypeProduit:
+    type: entity
+    table: type_produit
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        libelle:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+        idcategorie:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

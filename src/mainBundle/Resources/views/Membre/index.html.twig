@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Membre list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Login</th>
+                <th>Mdp</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Numerotel</th>
+                <th>Adresse</th>
+                <th>Bonus</th>
+                <th>Dvisite</th>
+                <th>Type</th>
+                <th>Nbprodvendu</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('membre_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.login }}</td>
+                <td>{{ entity.mdp }}</td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.age }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.numerotel }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.bonus }}</td>
+                <td>{% if entity.dvisite %}{{ entity.dvisite|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.nbProdVendu }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('membre_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

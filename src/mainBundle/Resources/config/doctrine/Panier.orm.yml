@@ -1,0 +1,23 @@
+mainBundle\Entity\Panier:
+    type: entity
+    table: panier
+    id:
+        idmembre:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+        idproduit:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+    fields:
+        quantite:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+    lifecycleCallbacks: {  }

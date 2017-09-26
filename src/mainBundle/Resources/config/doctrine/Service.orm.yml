@@ -1,0 +1,41 @@
+mainBundle\Entity\Service:
+    type: entity
+    repositoryClass: mainBundle\Entity\ServiceRepository
+    table: service
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        libelle:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+        date:
+            type: date
+            nullable: false
+            comment: ''
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        idmembre:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        idcategorie:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+    lifecycleCallbacks: {  }

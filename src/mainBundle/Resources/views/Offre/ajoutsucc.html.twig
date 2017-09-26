@@ -1,0 +1,87 @@
+{# empty Twig template #}
+{% extends 'mainBundle::layout.html.twig' %}
+{% block content %}
+    <div id="mainBody">
+        <div class="container">
+            <div class="row">
+
+
+                <div id="sidebar" class="span3">
+
+                    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                        <li class="subMenu open"><a> Gestion Produits </a>
+                            <ul>
+                                <li><a class="active" href="{{ path('afficherProduit') }}"><i class="icon-chevron-right"></i>Afficher</a></li>
+                                <li><a href="{{ path('ajouterProduit') }}"><i class="icon-chevron-right"></i>Ajouter</a></li>
+                                <li><a href="{{ path('modifierProduit') }}"><i class="icon-chevron-right"></i>Modifier</a></li>
+                                <li><a href="{{ path('supprimerProduit') }}"><i class="icon-chevron-right"></i>Supprimer</a></li>
+                            </ul>
+                        </li>
+                        <li class="subMenu"><a> Gestion Services </a>
+                            <ul style="display:none">
+                                <li><a class="active" href="{{ path('afficherService') }}"><i class="icon-chevron-right"></i>Afficher</a></li>
+                                <li><a href="{{ path('ajouterService') }}"><i class="icon-chevron-right"></i>Ajouter</a></li>
+                                <li><a href="{{ path('modifierService') }}"><i class="icon-chevron-right"></i>Modifier</a></li>
+                                <li><a href="{{ path('supprimerService') }}"><i class="icon-chevron-right"></i>Supprimer</a></li>												
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <div class="span9">
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('success') }}">Home</a> <span class="divider">/</span></li>
+                        <li class="active">Succés</li>
+                    </ul>
+                    {% if r==1 %}
+                        <h2> Produit Ajouté</h2>	
+                    {% elseif r==2 %}
+                        <h2> Produit Modifié</h2>
+                    {% elseif r==3 %}
+                        <h2> Produit Supprimé</h2> 
+                    {% elseif r==4 %}
+                        <h2> Service Ajouté</h2>
+                    {% elseif r==5 %}
+                        <h2> Service Modifié</h2>
+                    {% elseif r==6 %}
+                        <h2> Service Supprimé</h2>
+                    {%  endif %}
+                    <div class="well">
+                        <!--
+                        <div class="alert alert-info fade in">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                         </div>
+                        <div class="alert fade in">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                         </div>
+                         <div class="alert alert-block alert-error fade in">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Lorem Ipsum is simply</strong> dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                         </div> -->
+                        {% if r==1 %}
+                            <h4>Votre produit a été ajouté avec succés ! </h4>	
+                        {% elseif r==2 %}
+                            <h4>Votre produit a été modifié avec succés ! </h4>
+                        {% elseif r==3 %}
+                            <h4>Votre produit a été supprimé avec succés ! </h4>
+                        {% elseif r==4 %}
+                            <h4>Votre service a été ajouté avec succés ! </h4>
+                        {% elseif r==5 %}
+                            <h4>Votre service a été modifié avec succés ! </h4>
+                        {% elseif r==6 %}
+                            <h4>Votre service a été supprimé avec succés ! </h4>
+                        {%  endif %}
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

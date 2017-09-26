@@ -1,0 +1,127 @@
+main_homepage:
+    path:     /acceuil
+    defaults: { _controller: mainBundle:Accueil:accueil }
+login:
+    path:     /login
+    defaults: { _controller: mainBundle:Default:login }
+membre:
+    path:     /membres
+    defaults: { _controller: mainBundle:Membre:index }
+membre_show:
+    path:     /membre_show/{id}
+    defaults: { _controller: mainBundle:Membre:show }
+gestion_offer:
+    path:     /gestion-offer
+    defaults: { _controller: mainBundle:Accueil:gestion} 
+contact:
+    path:     /contact
+    defaults: { _controller: mainBundle:Default:contact }   
+delivery:
+    path:     /delivery
+    defaults: { _controller: mainBundle:Default:delivery } 
+products:
+    path:     /products/{categorie}/{page}
+    defaults: { _controller: mainBundle:Accueil:products } 
+services:
+    path:     /services/{categorie}/{page}
+    defaults: { _controller: mainBundle:Accueil:services } 
+product_details:
+    path:     /product-details/{id}
+    defaults: { _controller: mainBundle:Default:productDetails }    
+cart:
+    path:     /cart
+    defaults: { _controller: mainBundle:Panier:cart } 
+forget_pass:
+    path:     /forget-pass
+    defaults: { _controller: mainBundle:Default:forgetPass } 
+compair:
+    path:     /compair
+    defaults: { _controller: mainBundle:Default:compair }
+sign_in:
+    path:     /sign-in
+    defaults: { _controller: mainBundle:Default:signIn } 
+rechercheproduits:
+    path:     /recherche
+    defaults: { _controller: mainBundle:Accueil:rechercheNameProduit } 
+rechercheproduits2:
+    path:     /recherchep/{page}
+    defaults: { _controller: mainBundle:Accueil:rechercheNameProduit2 }
+rechercheproduits3:
+    path:     /recherches/{page}
+    defaults: { _controller: mainBundle:Accueil:rechercheNameProduit3 }
+filtre:
+    path:     /filtre
+    defaults: { _controller: mainBundle:Accueil:filtre }
+ajouterProduit:
+    path:     /ajouterproduit
+    defaults: { _controller: mainBundle:Offre:ajouterProduit }
+ajouterService:
+    path:     /ajouterservice
+    defaults: { _controller: mainBundle:Offre:ajouterService } 
+    
+ajouterp:
+    path:     /ajouterp
+    defaults: { _controller: mainBundle:Offre:ajouterP }
+ajouters:
+    path:     /ajouters
+    defaults: { _controller: mainBundle:Offre:ajouterS }
+    
+success:
+    path:     /success
+    defaults: { _controller: mainBundle:Offre:retour }    
+    
+modifierProduit:
+    path:     /modifierproduit
+    defaults: { _controller: mainBundle:Offre:modifierProduit }
+modifierp:
+    path:     /modifierp
+    defaults: { _controller: mainBundle:Offre:modifierP }    
+    
+afficherProduit:
+    path:     /afficherproduit
+    defaults: { _controller: mainBundle:Offre:afficherProduit }
+supprimerProduit:
+    path:     /supprimerproduit
+    defaults: { _controller: mainBundle:Offre:supprimerProduit }
+supprimerp:
+    path:     /supprimerp
+    defaults: { _controller: mainBundle:Offre:supprimerP }    
+modifierService:
+    path:     /modifierservice
+    defaults: { _controller: mainBundle:Offre:modifierService }
+modifiers:
+    path:     /modifiers
+    defaults: { _controller: mainBundle:Offre:modifierS }    
+afficherService:
+    path:     /afficherservice
+    defaults: { _controller: mainBundle:Offre:afficherService }
+supprimerService:
+    path:     /supprimerservice
+    defaults: { _controller: mainBundle:Offre:supprimerService }
+supprimers:
+    path:     /supprimers
+    defaults: { _controller: mainBundle:Offre:supprimerS }  
+ajout_membre:
+    path:     /register
+    defaults: { _controller: mainBundle:Membre:ajout_membre }
+remove_product_panier:
+    path:     /panier-remove/{idmembre}/{idproduit}
+    defaults: { _controller: mainBundle:Panier:panierRemove }
+envoie_reclamation:
+    path:     /envoie_reclamation
+    defaults: { _controller: mainBundle:Default:envoieReclamation }
+payer:
+    path:     /payement
+    defaults: { _controller: mainBundle:Default:payer }    
+execute:
+    path:     /execute
+    defaults: { _controller: mainBundle:Default:execute }
+add_cart:
+    path:     /add-cart/{id}
+    defaults: { _controller: mainBundle:Default:addCart }
+disconnect:
+    path:     /disconnect
+    defaults: { _controller: mainBundle:Default:disconnect }
+evaluation_submit:
+    path:     /evaluation-submit/produit/{id}
+    defaults: { _controller: mainBundle:Default:submitEvalProd }     

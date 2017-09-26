@@ -1,0 +1,14 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: allfordeal
+    database_user: root
+    database_password: null
+    mailer_transport: gmail
+    mailer_host: 127.0.0.1
+    mailer_user: ayoub.benachour@esprit.tn
+    mailer_password: a1Z2e3R4
+    locale: en
+    secret: 10c4f411b6987d079e5558868df2d3863

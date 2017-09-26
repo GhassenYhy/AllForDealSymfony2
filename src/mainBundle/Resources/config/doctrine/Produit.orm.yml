@@ -1,0 +1,65 @@
+mainBundle\Entity\Produit:
+    type: entity
+    table: produit
+    repositoryClass: mainBundle\Entity\ProduitRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        libelle:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            comment: ''
+        description:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        date:
+            type: date
+            nullable: false
+            comment: ''
+        prix:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            comment: ''
+        etat:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        image:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+        idcategorie:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        idmembre:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        nbVente:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: nb_vente
+    lifecycleCallbacks: {  }
